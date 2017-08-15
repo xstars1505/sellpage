@@ -1,0 +1,26 @@
+.top-header {
+  width: 100%;
+  float: left;
+  background: black;
+
+  .navbar-default {
+    margin-bottom: 0;
+    background: #000;
+    border: 0;
+    .navbar-nav {
+      a {
+        color: #fff;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .navbar-nav {
+    padding-right: 10px;
+    flex-direction: row;
+    a {
+      color: white;
+    }
+  }
+
+}
