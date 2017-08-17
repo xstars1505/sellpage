@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PublicComponent } from "./components/public/public.component";
+import { PublicModule } from "./components/public/public.module";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/public', pathMatch: 'full'},
-  { path: 'public', component: PublicComponent}
+  { path: '', loadChildren: () => PublicModule},
+  { path: '', redirectTo: '', pathMatch: 'full'},
 ];
 
 @NgModule({

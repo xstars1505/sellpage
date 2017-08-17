@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PublicRoutingModule } from './public-routing.module';
 import { PublicComponent } from './public.component';
 import { HomeComponent } from './components/home.component';
+import { NavBarComponent } from "../../common/components/nav-bar.component";
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { HomeComponent } from './components/home.component';
   ],
   declarations: [
     PublicComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent
   ]
 })
 export class PublicModule { }

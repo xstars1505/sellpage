@@ -6,13 +6,11 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { NavBarComponent } from './common/components/nav-bar.component';
 import { PublicModule } from "./components/public/public.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
   ],
   imports: [
     BrowserModule,
