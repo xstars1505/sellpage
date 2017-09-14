@@ -1,3 +1,4 @@
+<div>
 <div class="topbar">
     <div class="container">
         <div class="topbar__content row">
@@ -26,12 +27,34 @@
         </div>
     </div>
 </div>
-<nav role="navigation" class="navbar navbar-toggleable-sm navbar-default">
+
+<section id="intro" class="intro image-background">
+    <!-- .overlay-->
+    <div class="content">
+        <div class="container clearfix">
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12">
+                    <h2>We are<br><span class="h1">Robert Hunter</span></h2>
+                    <p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+                        eleifend leo. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                    </p>
+                    <a (click)="scrollTo('#navigation-bar', '#navigation')" class="btn btn-white scroll-to">Start shopping </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="scroll-btn">
+        <a href="#navigation" class="scroll-to">
+            <span class="mouse"><span>              </span></span></a></span>
+</section>
+
+
+<nav id="navigation-bar" class="navbar navbar-toggleable-sm navbar-default" ng2-scrollable (elementVisible)="id = $event.id">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target=".collapsed-search" class="navbar-toggler navbar-toggle btn btn-transparent"><i class="fa fa-search"></i><span class="sr-only">Toggle navigation</span></button>
+            <button type="button" data-toggle="collapse" data-target=".collapsed-search" class="navbar-toggler navbar-toggle btn btn-transparent"><i class="fa fa-search"></i></button>
             <a href="basket.html" class="navbar-toggler navbar-toggle btn btn-transparent"><i class="fa fa-shopping-cart"></i></a>
-            <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler navbar-toggle btn btn-transparent"><i class="fa fa-align-justify"></i><span class="sr-only">Toggle navigation</span></button>
+            <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler navbar-toggle btn btn-transparent"><i class="fa fa-align-justify"></i></button>
         </div>
         <div id="navigation" class="collapse navbar-collapse">
             <ul class="navbar-nav">
@@ -66,3 +89,4 @@
         </div>
     </div>
 </nav>
+</div>

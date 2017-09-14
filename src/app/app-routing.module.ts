@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PublicModule } from "./components/public/public.module";
 
 export let routes: Routes = [
-  { path: '', loadChildren: () => PublicModule},
+  { path: '', loadChildren: './components/public/public.module#PublicModule'},
   { path: '', redirectTo: '', pathMatch: 'full'},
 ];
 
@@ -12,5 +11,3 @@ export let routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
