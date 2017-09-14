@@ -1,4 +1,4 @@
-<div>
+<!--Menu-->
 <div class="topbar">
     <div class="container">
         <div class="topbar__content row">
@@ -28,8 +28,8 @@
     </div>
 </div>
 
+<!--intro section-->
 <section id="intro" class="intro image-background">
-    <!-- .overlay-->
     <div class="content">
         <div class="container clearfix">
             <div class="row">
@@ -38,18 +38,15 @@
                     <p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
                         eleifend leo. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
                     </p>
-                    <a (click)="scrollTo('#navigation-bar', '#navigation')" class="btn btn-white scroll-to">Start shopping </a>
+                    <button (click)="scrollTo('#navigation-bar', '#navigation')" class="btn btn-white scroll-to">Start shopping </button>
                 </div>
             </div>
         </div>
     </div>
-    <span class="scroll-btn">
-        <a href="#navigation" class="scroll-to">
-            <span class="mouse"><span>              </span></span></a></span>
 </section>
 
-
-<nav id="navigation-bar" class="navbar navbar-toggleable-sm navbar-default" ng2-scrollable (elementVisible)="id = $event.id">
+<!--Navigation bar-->
+<div id="navigation-bar" class="navbar navbar-toggleable-sm navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target=".collapsed-search" class="navbar-toggler navbar-toggle btn btn-transparent"><i class="fa fa-search"></i></button>
@@ -88,5 +85,4 @@
             </form>
         </div>
     </div>
-</nav>
 </div>
