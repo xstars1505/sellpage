@@ -1,2 +1,122 @@
 <app-nav-bar></app-nav-bar>
-<p>asd</p>
+<div class="container">
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading">
+                    <h4>Trending of this month</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row products">
+            <div class="col-md-3 col-sm-6" *ngFor="let i of [1,2,3,4]">
+                <div class="product">
+                    <div class="image"><a href="#"><img src="http://hunter.ondrejsvestka.cz/1-2/img/product2.jpg" alt=""
+                                                        class="img-responsive"></a>
+                        <div class="quick-view-button">
+                            <a href="#" data-toggle="modal" id="test"
+                               data-target="#product-quick-view-modal"
+                               class="btn btn-default btn-sm">
+                                Quick view
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <h3><a href="detail.html">Fur coat</a></h3>
+                        <p class="price">$143 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <h4>Top categories</h4>
+
+                <h5>Men</h5>
+
+                <ul>
+                    <li><a href="category.html">T-shirts</a>
+                    </li>
+                    <li><a href="category.html">Shirts</a>
+                    </li>
+                    <li><a href="category.html">Accessories</a>
+                    </li>
+                </ul>
+
+                <h5>Ladies</h5>
+                <ul>
+                    <li><a href="category.html">T-shirts</a>
+                    </li>
+                    <li><a href="category.html">Skirts</a>
+                    </li>
+                    <li><a href="category.html">Pants</a>
+                    </li>
+                    <li><a href="category.html">Accessories</a>
+                    </li>
+                </ul>
+
+                <hr class="hidden-sm-up">
+
+            </div>
+            <div class="col-md-4 col-sm-6">
+
+                <h4>Where to find us</h4>
+
+                <p><strong>Obaju Ltd.</strong>
+                    <br>13/25 New Avenue
+                    <br>New Heaven
+                    <br>45Y 73J
+                    <br>England
+                    <br>
+                    <strong>Great Britain</strong>
+                </p>
+
+                <a href="contact.html">Go to contact page</a>
+
+                <hr class="hidden-sm-up">
+
+            </div>
+            <div class="col-sm-12 hidden-md-up"><hr></div>
+            <div class="col-md-4 col-sm-12">
+
+                <h4>Get the news</h4>
+
+                <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+                <form>
+                    <div class="input-group">
+
+                        <input type="text" class="form-control">
+
+                        <span class="input-group-btn">
+
+			    <button class="btn btn-default" type="button">Subscribe!</button>
+
+			</span>
+
+                    </div>
+                    <!-- /input-group -->
+                </form>
+
+                <hr>
+
+                <h4>Stay in touch</h4>
+
+                <p class="social">
+                    <a href="#" class="facebook external" data-animate-hover="shake" style="opacity: 1;"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter external" data-animate-hover="shake" style="opacity: 1;"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
+                    <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                </p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
