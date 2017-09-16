@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+//Modules
 import { AppRoutingModule } from './app-routing.module';
+import { PublicModule } from "./public/public.module";
+
+//Components
 import { AppComponent } from './app.component';
+
+//Libs
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { PublicModule } from "./components/public/public.module";
+import {ScrollToModule} from 'ng2-scroll-to';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,8 @@ import { PublicModule } from "./components/public/public.module";
     HttpModule,
     AppRoutingModule,
     PublicModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

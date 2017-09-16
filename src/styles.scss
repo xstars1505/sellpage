@@ -1,6 +1,38 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-//@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss"
+$fa-font-path : '../node_modules/font-awesome/fonts';
+@import '../node_modules/font-awesome/scss/font-awesome';
+
+body {
+  font-family: 'Raleway',sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+}
 
 .pull-right {
   float: right;
+}
+
+.btn {
+  font-weight: 700;
+  font-family: "Montserrat",Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 0;
+}
+
+.btn-transparent {
+  color: #555;
+  background-color: transparent;
+  border-color: #555;
+}
+
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
 }
