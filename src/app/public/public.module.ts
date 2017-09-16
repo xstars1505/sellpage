@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { PublicRoutingModule } from './public-routing.module';
 import { PublicComponent } from './public.component';
-import { HomeComponent } from './components/home.component';
-import { NavBarComponent } from "../../common/components/nav-bar.component";
+import { NavBarComponent } from "../common/components/nav-bar.component";
+import { FooterComponent } from "../common/components/footer.component";
+import { HomeComponent } from "./components/home.component";
+import { WomenClothsComponent } from "./components/women-cloths.component";
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import { NavBarComponent } from "../../common/components/nav-bar.component";
   declarations: [
     PublicComponent,
     HomeComponent,
-    NavBarComponent
+    WomenClothsComponent,
+    NavBarComponent,
+    FooterComponent
   ]
 })
 export class PublicModule { }
