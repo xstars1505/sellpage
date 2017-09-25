@@ -7,6 +7,9 @@ import { NavBarComponent } from "../common/components/nav-bar.component";
 import { FooterComponent } from "../common/components/footer.component";
 import { HomeComponent } from "./components/home.component";
 import { WomenClothsComponent } from "./components/women-cloths.component";
+import { ProductDetailsResolver } from "./services/product-details.resolver";
+import { ProductDetailsService } from "./services/product-details.service";
+import { ProductDetailsComponent } from "./components/product-details.component";
 
 @NgModule({
   imports: [
@@ -17,8 +20,10 @@ import { WomenClothsComponent } from "./components/women-cloths.component";
     PublicComponent,
     HomeComponent,
     WomenClothsComponent,
+    ProductDetailsComponent,
     NavBarComponent,
     FooterComponent
-  ]
+  ],
+  providers: [ProductDetailsService, ProductDetailsResolver]
 })
 export class PublicModule { }
