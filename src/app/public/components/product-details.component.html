@@ -1,1 +1,110 @@
-{{ (resolvedData) }}
+<div class="container" id="test">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <div class="info-bar">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 products-showing">Showing <strong>12</strong> of <strong>25</strong> products</div>
+                    <div class="col-sm-12 col-md-8 products-number-sort">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="products-number"><strong>Show</strong> <a href="#" class="btn btn-default btn-sm btn-primary">12</a> <a href="#" class="btn btn-default btn-sm">24</a> <a href="#" class="btn btn-default btn-sm">All</a> <span class="hidden-md">products</span></div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="products-sort-by"><strong>Sort by</strong>
+                                        <select name="sort-by" class="form-control"><option>Price</option><option>Name</option><option>Sales first</option></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row products">
+                <div class="col-md-4 col-sm-6" *ngFor="let product of productDetails">
+                    <div class="product">
+                        <div class="image"><a href="#"><img src="http://hunter.ondrejsvestka.cz/1-2/img/product2.jpg" alt=""
+                                                            class="img-responsive"></a>
+                            <div class="quick-view-button" (click)="previewProduct = product">
+                                <a title="Expand" type="button" data-toggle="modal"
+                                   data-target="#preview-product-modal"
+                                   class="btn btn-default btn-sm">
+                                    Quick view
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <p class="brand">
+                                <a href="#">{{ product.shortName }}</a>
+                            </p>
+                            <h3><a href="detail.html">{{ product.fullName }}</a></h3>
+                            <p class="price">{{ product.price | currency:'USD':true }} </p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade quick-view-modal" id="preview-product-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-body">
+            <div class="row quick-view product-main">
+                <div class="col-sm-6">
+                    <div class="quick-view-main-image"><img [src]="previewProduct.mainImage" class="img-responsive"></div>
+                    <div class="ribbon ribbon-quick-view sale" *ngIf="previewProduct.onSale">
+                        <div class="theribbon">SALE</div>
+                    </div>
+                    <!-- /.ribbon-->
+                    <div class="ribbon ribbon-quick-view new" *ngIf="previewProduct.isNew">
+                        <div class="theribbon">NEW</div>
+                    </div>
+                    <!-- /.ribbon-->
+                    <div class="row thumbs">
+                        <div class="col-4" *ngFor="let detailImage of previewProduct.extraImages">
+                            <a class="thumb">
+                                <img class="img-responsive" [src]="detailImage">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h2 class="product__heading">{{ previewProduct.shortName }}</h2>
+                    <p class="text-muted text-small text-center">{{ previewProduct.description }}</p>
+                    <div class="box">
+                        <form>
+                            <p class="price">{{ previewProduct.price | currency: 'USD': true}}</p>
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="form-group">
+                                        <label for="modal_size">Choose your size</label>
+                                        <select id="modal_size" class="form-control">
+                                            <option>Small</option>
+                                            <option>Medium</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="modal_quantity">Quantity</label>
+                                        <input type="number" value="1" id="modal_quantity" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-center">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</button>
+                                <button type="submit" data-toggle="tooltip" data-placement="top" title="" class="btn btn-default" data-original-title="Add to wishlist"><i class="fa fa-heart-o"></i></button>
+                            </p>
+                        </form>
+                    </div>
+                    <!-- /.box-->
+                   <!-- <div class="quick-view-social">
+                        <h4>Show it to your friends</h4>
+                        <p><a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" data-animate-hover="pulse" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" data-animate-hover="pulse" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

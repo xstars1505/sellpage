@@ -36,3 +36,19 @@ body {
   background-color: #fff;
   border-color: #ccc;
 }
+
+.btn-primary {
+  color: #4fbfa8;
+  background-color: #fff;
+  border-color: #4fbfa8;
+  &:hover {
+    background: #4fbfa8;
+    color: #fff;
+    border: solid 1px #4fbfa8;
+  }
+}
+
+a {
+  color: #4fbfa8;
+  text-decoration: none;
+}
