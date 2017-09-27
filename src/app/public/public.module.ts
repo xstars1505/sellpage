@@ -9,18 +9,20 @@ import { HomeComponent } from "./components/home.component";
 import { WomenClothsComponent } from "./components/women-cloths.component";
 import { ProductDetailsResolver } from "./services/product-details.resolver";
 import { ProductDetailsService } from "./services/product-details.service";
-import { ProductDetailsComponent } from "./components/product-details.component";
+import { ProductsComponent } from "./components/products.component";
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
-    PublicRoutingModule
+    PublicRoutingModule,
+      NgxPaginationModule
   ],
   declarations: [
     PublicComponent,
     HomeComponent,
     WomenClothsComponent,
-    ProductDetailsComponent,
+    ProductsComponent,
     NavBarComponent,
     FooterComponent
   ],

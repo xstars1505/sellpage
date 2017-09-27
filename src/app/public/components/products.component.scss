@@ -7,6 +7,13 @@
   }
   .products-number {
     text-align: center;
+    .btn-default{
+      &:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+      }
+    }
   }
   .form-inline {
     width: 100%;
@@ -19,87 +26,122 @@
   }
 }
 
-.product {
-  background: #fff;
-  border-bottom: dotted 1px #e6e6e6;
-  box-sizing: border-box;
-  margin-bottom: 30px;
-  overflow: hidden;
+.page-top {
   text-align: center;
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  transition: all .2s ease-out;
-  &:hover {
-    border-bottom: solid 1px #808080;
-    top: 0;
-    img {
-      -moz-transform: scale(1.1);
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1);
-    }
-    .image {
-      .quick-view-button {
-        .btn {
-          opacity: 1;
+  margin-bottom: 45px;
+  padding-bottom: 30px;
+  h1 {
+    font-size: 43.2px;
+    color: #4fbfa8;
+    margin-bottom: 20px;
+    font-family: "Montserrat",Helvetica,Arial,sans-serif;
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+  .text-muted {
+    &:after {
+    display: table;
+    content: " ";
+    height: 1px;
+    background: #555;
+    position: relative;
+    top: 30px;
+    margin: 0 auto;
+    width: 150px;
+    box-sizing: border-box;
+    clear: both;
+  }
+  }
+}
+.products {
+  .product {
+    background: #fff;
+    border-bottom: dotted 1px #e6e6e6;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    overflow: hidden;
+    text-align: center;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    &:hover {
+      border-bottom: solid 1px #808080;
+      top: 0;
+      img {
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+      .image {
+        .quick-view-button {
+          .btn {
+            opacity: 1;
+          }
         }
       }
     }
-  }
-  img {
-    transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-  }
-  .image {
-    overflow: hidden;
-    position: relative;
-    .img-responsive {
-      margin: 0 auto;
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-    .quick-view-button {
-      position: absolute;
-      top: 50%;
-      margin-top: -15px;
-      left: 50%;
-      margin-left: -50px;
+    img {
       transition: all .2s ease-out;
-      .btn {
-        opacity: 0;
-        filter: alpha(opacity=0);
-        font-size: 11px;
-        width: 100px;
-        text-align: center;
+      -webkit-transition: all .2s ease-out;
+    }
+    .image {
+      overflow: hidden;
+      position: relative;
+      .img-responsive {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      .quick-view-button {
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        left: 50%;
+        margin-left: -50px;
+        transition: all .2s ease-out;
+        .btn {
+          opacity: 0;
+          filter: alpha(opacity=0);
+          font-size: 11px;
+          width: 100px;
+          text-align: center;
+        }
+      }
+    }
+    .text {
+      padding: 10px;
+      h3 {
+        font-size: 18px;
+        font-weight: 700;
+        height: 43.2px;
+        margin: 0;
+        font-family: "Montserrat", Helvetica, Arial, sans-serif;
+        line-height: 1.2;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        a {
+          color: #555;
+        }
+      }
+      .price {
+        font-size: 18px;
+      }
+      .brand {
+        font-weight: 400;
+        font-size: 12px;
       }
     }
   }
-  .text {
-    padding: 10px;
-    h3 {
-      font-size: 18px;
-      font-weight: 700;
-      height: 43.2px;
-      margin: 0;
-      font-family: "Montserrat", Helvetica, Arial, sans-serif;
-      line-height: 1.2;
-      color: #333;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      a {
-        color: #555;
-      }
-    }
-    .price {
-      font-size: 18px;
-    }
-    .brand {
-      font-weight: 400;
-      font-size: 12px;
+  .pagination-control {
+    .ngx-pagination .current {
+      background: #4fbfa8;
     }
   }
 }
-
 .quick-view-modal {
   .quick-view {
     margin-bottom: 20px;

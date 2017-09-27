@@ -1,15 +1,29 @@
 <div class="container" id="test">
+    <div class="col-md-12">
+    <div class="row page-top">
+        <div class="col-sm-6 offset-sm-3">
+            <h1>Ladies</h1>
+            <p class="text-muted">In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide. Pellentesque habitant morbi tristique senectus et netuss.</p>
+        </div>
+    </div>
+    </div>
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-9">
             <div class="info-bar">
                 <div class="row">
-                    <div class="col-sm-12 col-md-4 products-showing">Showing <strong>12</strong> of <strong>25</strong> products</div>
-                    <div class="col-sm-12 col-md-8 products-number-sort">
+
+                    <div class="col-sm-12 products-number-sort">
                         <div class="row">
                             <div class="form-inline">
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="products-number"><strong>Show</strong> <a href="#" class="btn btn-default btn-sm btn-primary">12</a> <a href="#" class="btn btn-default btn-sm">24</a> <a href="#" class="btn btn-default btn-sm">All</a> <span class="hidden-md">products</span></div>
+                                    <div class="products-number">
+                                        <strong>Show</strong>
+                                        <button class="btn btn-default btn-sm" [ngClass]="{ 'btn-primary': itemsPerPage === 12 }" (click)="itemsPerPage = 12">12</button>
+                                        <button class="btn btn-default btn-sm" [ngClass]="{ 'btn-primary': itemsPerPage === 24 }" (click)="itemsPerPage = 24">24</button>
+                                        <button class="btn btn-default btn-sm" [ngClass]="{ 'btn-primary': itemsPerPage === 48 }" (click)="itemsPerPage = 48">48</button>
+                                        <span class="hidden-md">products</span>
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="products-sort-by"><strong>Sort by</strong>
@@ -22,11 +36,14 @@
                 </div>
             </div>
             <div class="row products">
-                <div class="col-md-4 col-sm-6" *ngFor="let product of productDetails">
+                <div class="col-md-4 col-sm-6" *ngFor="let product of productDetails | paginate: {itemsPerPage: 3, currentPage: p}">
                     <div class="product">
-                        <div class="image"><a href="#"><img src="http://hunter.ondrejsvestka.cz/1-2/img/product2.jpg" alt=""
-                                                            class="img-responsive"></a>
-                            <div class="quick-view-button" (click)="previewProduct = product">
+                        <div class="image">
+                            <a href="#">
+                                <img src="http://hunter.ondrejsvestka.cz/1-2/img/product2.jpg"
+                                    class="img-responsive">
+                            </a>
+                            <div class="quick-view-button" (click)="open(content, product)">
                                 <a title="Expand" type="button" data-toggle="modal"
                                    data-target="#preview-product-modal"
                                    class="btn btn-default btn-sm">
@@ -45,15 +62,22 @@
 
 
                 </div>
+                <div class="col-md-12 text-center pagination-control">
+                    <pagination-controls previousLabel=""
+                                         nextLabel=""
+                                         (pageChange)="p = $event">
+                    </pagination-controls>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade quick-view-modal" id="preview-product-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!--<div class="modal fade quick-view-modal" id="preview-product-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+    <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-body">
             <div class="row quick-view product-main">
                 <div class="col-sm-6">
-                    <div class="quick-view-main-image"><img [src]="previewProduct.mainImage" class="img-responsive"></div>
+                    <div class="quick-view-main-image"><img [src]="selectedImage" class="img-responsive"></div>
                     <div class="ribbon ribbon-quick-view sale" *ngIf="previewProduct.onSale">
                         <div class="theribbon">SALE</div>
                     </div>
@@ -64,13 +88,13 @@
                     <!-- /.ribbon-->
                     <div class="row thumbs">
                         <div class="col-4" *ngFor="let detailImage of previewProduct.extraImages">
-                            <a class="thumb">
+                            <a class="thumb" (click)="displayImage(detailImage)" [ngClass]="{'active': detailImage === selectedImage}">
                                 <img class="img-responsive" [src]="detailImage">
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 margin-top-40">
                     <h2 class="product__heading">{{ previewProduct.shortName }}</h2>
                     <p class="text-muted text-small text-center">{{ previewProduct.description }}</p>
                     <div class="box">
@@ -105,6 +129,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </ng-template>
 
 </div>

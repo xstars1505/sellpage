@@ -36,9 +36,9 @@ export class ProductDetailsService {
                         description: 'A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut.',
                         mainImage: 'http://hunter.ondrejsvestka.cz/1-2/img/detailbig1.jpg',
                         extraImages: [
-                            'http://hunter.ondrejsvestka.cz/1-2/img/detailsmall1.jpg',
-                            'http://hunter.ondrejsvestka.cz/1-2/img/detailsmall2.jpg',
-                            'http://hunter.ondrejsvestka.cz/1-2/img/detailsmall3.jpg'
+                            'http://hunter.ondrejsvestka.cz/1-2/img/detailbig1.jpg',
+                            'http://hunter.ondrejsvestka.cz/1-2/img/detailbig2.jpg',
+                            'http://hunter.ondrejsvestka.cz/1-2/img/detailbig3.jpg'
                         ],
                         availableSizes: [
                             'Small',

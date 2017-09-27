@@ -5,13 +5,16 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
     moduleId: module.id,
     selector: 'app-product-details',
-    templateUrl: 'product-details.component.html',
-    styleUrls: ['./product-details.component.scss'],
+    templateUrl: 'products.component.html',
+    styleUrls: ['./products.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductsComponent implements OnInit {
     productDetails;
-    previewProduct;
+    previewProduct = {};
+    p=1;
+    selectedImage = '';
+    itemsPerPage = 12;
     constructor(private route:ActivatedRoute, private modalService:NgbModal) {
         this.route.data.subscribe(val => {
             this.productDetails = val["data"];
@@ -24,7 +27,12 @@ export class ProductDetailsComponent implements OnInit {
 
     open(content, product) {
         this.previewProduct = product;
-        this.modalService.open(content, {size: 'lg', windowClass: 'quick-view-modal'});
+        this.selectedImage = product.extraImages[0];
+        this.modalService.open(content, {size: 'lg', windowClass: 'quick-view-modal'}); //no animation for now (lib error)
+    }
+
+    displayImage(link) {
+        this.selectedImage = link;
     }
 
 }

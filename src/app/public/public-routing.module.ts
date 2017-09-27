@@ -4,7 +4,7 @@ import { HomeComponent } from "./components/home.component";
 import { PublicComponent } from "./public.component";
 import { WomenClothsComponent } from "./components/women-cloths.component";
 import { ProductDetailsResolver } from "./services/product-details.resolver";
-import { ProductDetailsComponent } from "./components/product-details.component";
+import { ProductsComponent } from "./components/products.component";
 
 let routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -24,7 +24,7 @@ let routes: Routes = [
         },
         {
           path: 'products/:category',
-          component: ProductDetailsComponent,
+          component: ProductsComponent,
           resolve: {
             data: ProductDetailsResolver
           }
