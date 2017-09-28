@@ -11,21 +11,24 @@ import { ProductDetailsResolver } from "./services/product-details.resolver";
 import { ProductDetailsService } from "./services/product-details.service";
 import { ProductsComponent } from "./components/products.component";
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PublicRoutingModule,
-      NgxPaginationModule
-  ],
-  declarations: [
-    PublicComponent,
-    HomeComponent,
-    WomenClothsComponent,
-    ProductsComponent,
-    NavBarComponent,
-    FooterComponent
-  ],
-  providers: [ProductDetailsService, ProductDetailsResolver]
+    imports: [
+        CommonModule,
+        PublicRoutingModule,
+        NgxPaginationModule,
+        FormsModule
+    ],
+    declarations: [
+        PublicComponent,
+        HomeComponent,
+        WomenClothsComponent,
+        ProductsComponent,
+        NavBarComponent,
+        FooterComponent
+    ],
+    providers: [ProductDetailsService, ProductDetailsResolver]
 })
-export class PublicModule { }
+export class PublicModule {
+}
