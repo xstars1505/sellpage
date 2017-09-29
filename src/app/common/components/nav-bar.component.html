@@ -29,7 +29,7 @@
 </div>
 
 <!--intro section-->
-<section id="intro" class="intro image-background">
+<section id="intro" class="intro image-background" *ngIf="showSlider">
     <div class="content">
         <div class="container clearfix">
             <div class="row">
@@ -59,7 +59,7 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" [routerLink]="['/products', 'man']">Features</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>

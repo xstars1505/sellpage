@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { scrollTo } from 'ng2-utils';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,10 +8,11 @@ import { scrollTo } from 'ng2-utils';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-
-  constructor() {}
+  showSlider;
+  constructor(private _router: Router) {}
 
   ngOnInit() {
+    this.showSlider = this._router.url.indexOf('home') > 0;
   }
 
   scrollTo(selector, parentSelector, horizontal) {

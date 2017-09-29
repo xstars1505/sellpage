@@ -23,6 +23,9 @@ body {
   font-size: 12px;
   line-height: 1.42857143;
   border-radius: 0;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .btn-transparent {
@@ -35,4 +38,24 @@ body {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
+}
+
+.btn-primary {
+  color: #4fbfa8;
+  background-color: #fff;
+  border-color: #4fbfa8;
+  &:hover {
+    background: #4fbfa8;
+    color: #fff;
+    border: solid 1px #4fbfa8;
+  }
+}
+
+a {
+  color: #4fbfa8;
+  text-decoration: none;
+}
+
+.margin-top-40 {
+  margin-top: 40px;
 }

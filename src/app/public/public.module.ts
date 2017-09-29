@@ -7,18 +7,28 @@ import { NavBarComponent } from "../common/components/nav-bar.component";
 import { FooterComponent } from "../common/components/footer.component";
 import { HomeComponent } from "./components/home.component";
 import { WomenClothsComponent } from "./components/women-cloths.component";
+import { ProductDetailsResolver } from "./services/product-details.resolver";
+import { ProductDetailsService } from "./services/product-details.service";
+import { ProductsComponent } from "./components/products.component";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PublicRoutingModule
-  ],
-  declarations: [
-    PublicComponent,
-    HomeComponent,
-    WomenClothsComponent,
-    NavBarComponent,
-    FooterComponent
-  ]
+    imports: [
+        CommonModule,
+        PublicRoutingModule,
+        NgxPaginationModule,
+        FormsModule
+    ],
+    declarations: [
+        PublicComponent,
+        HomeComponent,
+        WomenClothsComponent,
+        ProductsComponent,
+        NavBarComponent,
+        FooterComponent
+    ],
+    providers: [ProductDetailsService, ProductDetailsResolver]
 })
-export class PublicModule { }
+export class PublicModule {
+}
