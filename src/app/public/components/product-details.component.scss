@@ -1,0 +1,119 @@
+.product-main {
+  .main-image {
+    text-align: center;
+    .img-responsive {
+      display: block;
+      max-width: 81%;
+      height: auto;
+    }
+  }
+  .ribbon {
+    position: absolute;
+    top: 50px;
+    padding-left: 51px;
+    &.ribbon-quick-view {
+      padding-left: 36px;
+    }
+    &.new {
+      .theribbon {
+        background-color: #5bc0de;
+        text-shadow: 0 1px 2px #bbb;
+      }
+    }
+    &.sale {
+      top: 0;
+      .theribbon {
+        background-color: #4fbfa8;
+      }
+    }
+    .theribbon {
+      position: relative;
+      width: 80px;
+      padding: 6px 20px 6px 20px;
+      margin: 30px 10px 10px -59px;
+      color: #fff;
+      font-family: "Montserrat", Helvetica, Arial, sans-serif;
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+
+      &::after {
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0;
+        top: 100%;
+        border-width: 4px 4px;
+        border-style: solid;
+        border-color: #000 #000 transparent transparent;
+      }
+    }
+  }
+  .sp-thumbs {
+    position: absolute;
+    right: 0!important;
+    text-align: left;
+    bottom: 20%!important;
+    width: 100px!important;
+    z-index: 70;
+    text-align: center;
+    .thumb {
+      margin-bottom: 10px;
+      margin-right: 0!important;
+      transition: margin 0.2s ease 0s;
+      border: 2px solid #eee;
+      display: inline-block;
+      float: right;
+      width: 70px;
+      height: 70px;
+      padding: 2px;
+      .img-responsive {
+        max-width: 80%;
+        height: auto;
+      }
+    }
+  }
+  .thumbs {
+    margin-top: 30px;
+    text-align: center;
+    a {
+      display: block;
+      border-bottom: solid 3px transparent;
+      padding-bottom: 10px;
+      &.active {
+        border-bottom-color: #4fbfa8;
+      }
+      .img-responsive {
+        max-width: 50%;
+        height: auto;
+      }
+    }
+  }
+  .product__heading {
+    color: #4fbfa8;
+    text-align: center;
+  }
+  .text-small {
+    font-size: 12px;
+  }
+  .box {
+    background: #fff;
+    margin: 20px 0 30px;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    padding: 20px;
+    border-left: none;
+    border-right: none;
+  }
+  .price {
+    font-size: 28px;
+    margin: 20px 0;
+    font-family: "Montserrat",Helvetica,Arial,sans-serif;
+    text-align: center;
+  }
+}
