@@ -1,33 +1,71 @@
-//import $ from 'jquery';
-import 'owl.carousel';
-declare var $: any,jQuery: any;
-import { Component, Input, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import {Component, ViewChild, Input, IterableDiffers, ChangeDetectorRef, IterableDiffer, DoCheck} from '@angular/core';
+import {OwlChild} from "./owl-child.component";
 
 @Component({
     selector: 'owl-carousel',
-    template: `<ng-content></ng-content>`
+    template:
+    '<owl-carousel-child *ngIf="show" #owl [ngClass]="carouselClasses" [options]="options">' +
+    '<ng-content></ng-content></owl-carousel-child>',
 })
-export class OwlCarousel implements OnDestroy, AfterViewInit{
-    @Input() options: Object;
 
-    $owlElement: any;
+//sortLayoutImages
 
-    defaultOptions: Object = {};
+export class OwlCarousel implements DoCheck {
+    @ViewChild('owl') $owlChild: OwlChild;
+    @Input() carouselClasses: any = "";
+    @Input() options: any = {};
+    private _items: any;
+    private differ:IterableDiffer<any>;
+    show: boolean = true;
 
-    constructor(private el: ElementRef) {}
-
-    ngAfterViewInit() {
-        for (var key in this.options) {
-            this.defaultOptions[key] = this.options[key];
-        }
-        var temp :any;
-        temp = $(this.el.nativeElement);
-
-        this.$owlElement = temp.owlCarousel({navigation: true});
+    constructor(private differs:IterableDiffers) {
     }
 
-    ngOnDestroy() {
-        this.$owlElement.data('owlCarousel').destroy();
-        this.$owlElement = null;
+    @Input() set items(coll :any[]) {
+        this._items = coll;
+        if (coll && !this.differ) {
+            this.differ = this.differs.find(coll).create(null);
+        }
+    }
+
+    ngDoCheck() {
+        if(this.differ) {
+            const changes = this.differ.diff(this._items);
+            if (changes) {
+                var changed = false;
+                let changedFn = () =>{
+                    changed = true;
+                };
+                changes.forEachAddedItem(changedFn);
+                changes.forEachMovedItem(changedFn);
+                changes.forEachRemovedItem(changedFn);
+                if (changed) {
+                    this.refresh();
+                }
+            }
+        }
+    }
+
+    refresh() {
+        this.show = false;
+        setTimeout(()=>{
+            this.show = true;
+        }, 0);
+    }
+
+    next(options?: any[]) {
+        this.trigger('next.owl.carousel', options);
+    }
+
+    previous(options?: any[]) {
+        this.trigger('prev.owl.carousel', options);
+    }
+
+    to(options?: any[]) {
+        this.trigger('to.owl.carousel', options);
+    }
+
+    trigger(action:string, options?: any[]) {
+        this.$owlChild.trigger(action, options);
     }
 }

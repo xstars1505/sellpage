@@ -81,21 +81,24 @@
             </div>
         </div>
     </div>
-   <div class="row">
+   <div class="row carousel">
        <div class="col-1">
-           <button><i class="fa fa-chevron-circle-left" aria-hidden="true" (click)="owl.previous()"></i></button>
+           <button class="carousel-nav"><i class="fa fa-chevron-left" aria-hidden="true" (click)="owl.previous()"></i></button>
        </div>
        <div class="col-10">
-           <owl-carousel #owl class="owl-carousel" [options]="{navigation: true, pagination: true, rewindNav : true, items:2, autoplayHoverPause: true, URLhashListener:true}">
-               <div class="owl-stage" *ngFor="let img of productDetails.extraImages; let i=index">
-                   <div class="owl-item">
-                       <a href="#"><img src="{{ img }}"/></a>
-                   </div>
+           <owl-carousel #owl
+           [options]="carouselOptions"
+           [items]="productDetails.extraImages"
+           [carouselClasses]="['owl-theme','owl-default', 'row', 'sliding']">
+           <div class="item deal-slide" *ngFor="let image of productDetails.extraImages;let i = index">
+               <div class="coupons-div" style="cursor:pointer;">
+                <img class="deals-image" src="{{image}}"/><br/>
                </div>
-           </owl-carousel>
            </div>
+           </owl-carousel>
+       </div>
        <div class="col-1">
-           <button><i (click)="owl.next()" class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+           <button class="carousel-nav"><i (click)="owl.next()" class="fa fa-chevron-right" aria-hidden="true"></i></button>
        </div>
    </div>
 </div>
