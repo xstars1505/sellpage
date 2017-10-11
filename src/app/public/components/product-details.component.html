@@ -81,24 +81,34 @@
             </div>
         </div>
     </div>
-   <div class="row carousel">
-       <div class="col-1">
-           <button class="carousel-nav"><i class="fa fa-chevron-left" aria-hidden="true" (click)="owl.previous()"></i></button>
+   <div class="row ">
+       <div class="col-12 col-sm-4">
+           <h2>test</h2>
        </div>
-       <div class="col-10">
-           <owl-carousel #owl
-           [options]="carouselOptions"
-           [items]="productDetails.extraImages"
-           [carouselClasses]="['owl-theme','owl-default', 'row', 'sliding']">
-           <div class="item deal-slide" *ngFor="let image of productDetails.extraImages;let i = index">
-               <div class="coupons-div" style="cursor:pointer;">
-                <img class="deals-image" src="{{image}}"/><br/>
+       <div class="col-12 col-sm-8">
+           <div class="row carousel">
+               <div class="col-1">
+                   <button class="btn btn-secondary carousel-nav" (click)="owl.previous()">
+                       <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                   </button>
+               </div>
+               <div class="col-10">
+                   <owl-carousel #owl
+                                 [options]="carouselOptions"
+                                 [items]="productDetails.extraImages"
+                                 [carouselClasses]="['owl-theme','owl-default', 'row', 'sliding']">
+                       <div class="item deal-slide" *ngFor="let image of productDetails.extraImages;let i = index">
+                           <img class="image-responsive" src="{{image}}"/><br/>
+                       </div>
+                   </owl-carousel>
+               </div>
+               <div class="col-1">
+                   <button class="btn btn-secondary carousel-nav" (click)="owl.next()">
+                       <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                   </button>
                </div>
            </div>
-           </owl-carousel>
        </div>
-       <div class="col-1">
-           <button class="carousel-nav"><i (click)="owl.next()" class="fa fa-chevron-right" aria-hidden="true"></i></button>
-       </div>
+
    </div>
 </div>

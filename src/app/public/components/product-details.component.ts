@@ -14,10 +14,9 @@ export class ProductDetailsComponent implements OnInit {
     selectedImage;
 
     carouselOptions: any = {
-        nav : true,
         pagination: true,
         dots: true,
-
+items:2
     };
 
     constructor(private activeRoute:ActivatedRoute, private rout: Router, private modalService:NgbModal) {
