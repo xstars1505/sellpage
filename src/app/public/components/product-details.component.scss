@@ -146,7 +146,6 @@
     margin-top: 30px;
     margin-bottom: 30px;
     padding-bottom: 30px;
-    border-bottom: solid 1px #eee;
     h4 {
       text-align: center;
       font-size: 18px;
@@ -176,5 +175,55 @@
     width: 34px;
     height: 28px;
     cursor: pointer;
+  }
+}
+
+.sims-carousel-heading {
+  clear: left;
+}
+
+hr {
+  background-color: transparent;
+  display: block;
+  height: 1px;
+  border-width: 0;
+  border-top: 1px solid #e7e7e7;
+  line-height: 19px;
+  margin-top: 0;
+  margin-bottom: 14px;
+  &.bucketDivider {
+    border: none;
+    height: 44px!important;
+    margin-bottom: -18px;
+    background: linear-gradient(to bottom,#ddd,#F7F7F3 5px,#fff);
+    filter: none;
+    z-index: 0;
+    zoom: 1;
+    &:after {
+      display: block;
+      width: 100%;
+      height: 44px;
+      background-color: transparent;
+      background: linear-gradient(to left,#fff,rgba(255,255,255,0),#fff);
+      filter: none;
+      z-index: 1;
+      content: "";
+    }
+  }
+}
+
+.suggested-products-container {
+  .suggested-products-title {
+    margin-bottom: 30px;
+    h4 {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: "Montserrat",Helvetica,Arial,sans-serif;
+      line-height: 1.2;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
   }
 }
