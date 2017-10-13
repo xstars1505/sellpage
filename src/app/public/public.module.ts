@@ -7,28 +7,46 @@ import { NavBarComponent } from "../common/components/nav-bar.component";
 import { FooterComponent } from "../common/components/footer.component";
 import { HomeComponent } from "./components/home.component";
 import { WomenClothsComponent } from "./components/women-cloths.component";
-import { ProductDetailsResolver } from "./services/product-details.resolver";
+import { ProductsResolver } from "./services/products.resolver";
 import { ProductDetailsService } from "./services/product-details.service";
 import { ProductsComponent } from "./components/products.component";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { ProductDetailsResolver } from './services/product-details.resolver';
+import { ProductDetailsComponent } from './components/product-details.component';
+import { ImageZoomContainer } from '../common/components/image-zoom-container.component';
+import { ImageZoomLens } from '../common/components/image-zoom-lens.component';
+import { ImageZoom } from '../common/components/image-zoom.directive';
+import { Ng2OwlCarouselComponent } from 'ng2-owl-carousel2';
+import { OwlModule } from 'ngx-owl-carousel';
+import { OwlChild } from '../common/components/owl-child.component';
+import { OwlCarousel } from '../common/components/owl-carousel.component';
 
 @NgModule({
     imports: [
         CommonModule,
         PublicRoutingModule,
         NgxPaginationModule,
-        FormsModule
+        CommonModule,
+        FormsModule,
+       // OwlModule,
     ],
     declarations: [
         PublicComponent,
         HomeComponent,
         WomenClothsComponent,
         ProductsComponent,
+        ProductDetailsComponent,
         NavBarComponent,
-        FooterComponent
+        FooterComponent,
+        ImageZoomContainer,
+        ImageZoomLens,
+        ImageZoom,
+        OwlChild,
+        OwlCarousel
     ],
-    providers: [ProductDetailsService, ProductDetailsResolver]
+    entryComponents: [ImageZoomContainer, ImageZoomLens,],
+    providers: [ProductDetailsService, ProductsResolver, ProductDetailsResolver, ]
 })
 export class PublicModule {
 }

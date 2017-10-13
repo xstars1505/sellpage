@@ -74,13 +74,13 @@
             </div>
             <div class="row products">
                 <div class="col-md-4 col-sm-6" *ngFor="let product of productDetails | paginate: {itemsPerPage: 3, currentPage: p}">
-                    <div class="product">
+                    <div class="product" (click)="goToProductDetails(product)">
                         <div class="image">
-                            <a href="#">
+                            <a >
                                 <img src="http://hunter.ondrejsvestka.cz/1-2/img/product2.jpg"
                                     class="img-responsive">
                             </a>
-                            <div class="quick-view-button" (click)="open(content, product)">
+                            <div class="quick-view-button" (click)="open(content, product, $event)">
                                 <a title="Expand" type="button" data-toggle="modal"
                                    data-target="#preview-product-modal"
                                    class="btn btn-default btn-sm">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="text">
                             <p class="brand">
-                                <a href="#">{{ product.shortName }}</a>
+                                <a>{{ product.shortName }}</a>
                             </p>
                             <h3><a href="detail.html">{{ product.fullName }}</a></h3>
                             <p class="price">{{ product.price | currency:'USD':true }} </p>
