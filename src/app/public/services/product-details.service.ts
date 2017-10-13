@@ -133,6 +133,7 @@ export class ProductDetailsService {
         let mockData =
         {
             fullName: 'Funky shirt ',
+            status: 'In Stock',
             shortName: 'Quick sleeve',
             description: 'A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut.',
             mainImage: 'http://hunter.ondrejsvestka.cz/1-2/img/detailbig1.jpg',

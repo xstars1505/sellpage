@@ -1,8 +1,16 @@
 <div class="container">
     
     <div class="row product-main">
-        <div class="col-sm-6">
-            <div class="main-image"><img [src]="productDetails.mainImage" class="img-responsive"></div>
+        <div class="col-md-6">
+            <div class="main-image">
+                <img [imageZoom]="selectedImage"
+                     [lensStyle]="'LENS'"
+                     [minZoomLevel]="0.4"
+                     [scrollZoom]="false"
+                     [delay]="200"
+                     [src]="selectedImage"
+                     class="img-responsive">
+            </div>
             <div class="ribbon ribbon-quick-view sale" *ngIf="productDetails.onSale">
                 <div class="theribbon">SALE</div>
             </div>
@@ -12,18 +20,17 @@
             </div>
             <!-- /.ribbon-->
             <div class="sp-thumbs">
-
-                    <a *ngFor="let detailImage of productDetails.extraImages" class="thumb" (click)="displayImage(detailImage)" [ngClass]="{'active': detailImage === selectedImage}">
-                        <img class="img-responsive" [src]="detailImage">
-                    </a>
-
+                <a *ngFor="let detailImage of productDetails.extraImages" class="thumb" (click)="displayImage(detailImage)" [ngClass]="{'active': detailImage === selectedImage}">
+                    <img class="img-responsive" [src]="detailImage">
+                </a>
             </div>
         </div>
-        <div class="col-sm-6 margin-top-40">
+        <div class="col-md-5 offset-md-1">
             <h2 class="product__heading">{{ productDetails.shortName }}</h2>
             <p class="text-muted text-small text-center">{{ productDetails.description }}</p>
             <div class="box">
                 <form>
+                    <h2 class="status">{{ productDetails.status }}</h2>
                     <p class="price">{{ productDetails.price | currency: 'USD': true}}</p>
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
@@ -46,6 +53,7 @@
                         <button type="submit" data-toggle="tooltip" data-placement="top" title="" class="btn btn-default" data-original-title="Add to wishlist"><i class="fa fa-heart-o"></i></button>
                     </p>
                 </form>
+
             </div>
             <!-- /.box-->
             <!-- <div class="quick-view-social">
@@ -53,6 +61,57 @@
                  <p><a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" data-animate-hover="pulse" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" data-animate-hover="pulse" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
              </div>-->
         </div>
+        <div class="col-md-5 offset-md-7">
+            <div class="product__details">
+                <h4>Product details</h4>
+                <p>White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
+                <h4>Material &amp; care</h4>
+                <ul>
+                    <li>Polyester</li>
+                    <li>Machine wash</li>
+                </ul>
+                <h4>Size and fit</h4>
+                <ul>
+                    <li>Regular fit</li>
+                    <li>The model (height 5'8" and chest 33") is wearing a size S  </li>
+                </ul>
+                <blockquote>
+                    <p><em>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</em></p>
+                </blockquote>
+            </div>
+        </div>
     </div>
-   
+
+    <hr class="a-divider-normal sims-carousel-heading bucketDivider">
+
+    <div class="row suggested-products-container">
+       <div class="col-sm-12 col-md-3 suggested-products-title">
+           <h4>YOU MAY ALSO LIKE THESE PRODUCTS</h4>
+       </div>
+       <div class="col-sm-12 col-md-8  offset-md-1">
+           <div class="row carousel">
+               <div class="col-sm-1 hidden-xs-down">
+                   <button class="btn btn-secondary carousel-nav" (click)="owl.previous()">
+                       <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                   </button>
+               </div>
+               <div class="col-12 col-sm-10">
+                   <owl-carousel #owl
+                                 [options]="carouselOptions"
+                                 [items]="productDetails.extraImages"
+                                 [carouselClasses]="['owl-theme','owl-default', 'row', 'sliding']">
+                       <div class="item deal-slide" *ngFor="let image of productDetails.extraImages;let i = index">
+                           <img class="image-responsive" src="{{image}}"/><br/>
+                       </div>
+                   </owl-carousel>
+               </div>
+               <div class="col-sm-1 hidden-xs-down">
+                   <button class="btn btn-secondary carousel-nav" (click)="owl.next()">
+                       <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                   </button>
+               </div>
+           </div>
+       </div>
+
+   </div>
 </div>
