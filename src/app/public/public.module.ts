@@ -17,10 +17,7 @@ import { ProductDetailsComponent } from './components/product-details.component'
 import { ImageZoomContainer } from '../common/components/image-zoom-container.component';
 import { ImageZoomLens } from '../common/components/image-zoom-lens.component';
 import { ImageZoom } from '../common/components/image-zoom.directive';
-import { Ng2OwlCarouselComponent } from 'ng2-owl-carousel2';
 import { OwlModule } from 'ngx-owl-carousel';
-import { OwlChild } from '../common/components/owl-child.component';
-import { OwlCarousel } from '../common/components/owl-carousel.component';
 
 @NgModule({
     imports: [
@@ -29,7 +26,7 @@ import { OwlCarousel } from '../common/components/owl-carousel.component';
         NgxPaginationModule,
         CommonModule,
         FormsModule,
-       // OwlModule,
+       OwlModule,
     ],
     declarations: [
         PublicComponent,
@@ -42,8 +39,6 @@ import { OwlCarousel } from '../common/components/owl-carousel.component';
         ImageZoomContainer,
         ImageZoomLens,
         ImageZoom,
-        OwlChild,
-        OwlCarousel
     ],
     entryComponents: [ImageZoomContainer, ImageZoomLens,],
     providers: [ProductDetailsService, ProductsResolver, ProductDetailsResolver, ]
