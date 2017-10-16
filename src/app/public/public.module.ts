@@ -25,6 +25,7 @@ import { ProductDetailsResolver } from './services/product-details.resolver';
 import { ProductDetailsComponent } from './components/product-details.component';
 import { CartComponent } from './components/cart.component';
 import { CartResolver } from './services/cart.resolver';
+import { CartService } from './services/cart.service';
 
 @NgModule({
     imports: [
@@ -49,7 +50,7 @@ import { CartResolver } from './services/cart.resolver';
         CartComponent,
     ],
     entryComponents: [ImageZoomContainer, ImageZoomLens,],
-    providers: [ProductDetailsService, ProductsResolver, ProductDetailsResolver, CartResolver]
+    providers: [ProductDetailsService, ProductsResolver, ProductDetailsResolver, CartResolver, CartService]
 })
 export class PublicModule {
 }
