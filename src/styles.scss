@@ -17,6 +17,15 @@ body {
   float: right;
 }
 
+.no-padding {
+  padding: 0;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+}
+
 .btn {
   font-weight: 700;
   font-family: "Montserrat",Helvetica,Arial,sans-serif;

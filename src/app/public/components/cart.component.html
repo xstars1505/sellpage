@@ -78,9 +78,9 @@
                                 <tr class="CartProduct cartTableHeader">
                                     <td style="width: 15%"> Product</td>
                                     <td style="width: 40%">Details</td>
-                                    <td style="width: 10%" class="delete">&nbsp;</td>
-                                    <td style="width: 10%">QNT</td>
-                                    <td style="width: 20%">Price</td>
+                                    <td style="width: 15%" class="delete">&nbsp;</td>
+                                    <td style="width: 10%">Quantity</td>
+                                    <td style="width: 15%">Price</td>
                                 </tr>
                             <tr class="CartProduct"
                                 *ngFor="let product of data">
@@ -94,7 +94,7 @@
                                         <p class="price">{{ product.price | currency:'USD':true }}</p>
                                     </div>
                                 </td>
-                                <td style="width: 10%" class="delete"><i class="fa fa-trash fa-2x" (click)="removeProduct(product)"></i></td>
+                                <td style="width: 15%" class="delete"><i class="fa fa-trash fa-2x" (click)="removeProduct(product)"></i></td>
                                 <td style="width: 10%">
                                     <div class="input-group bootstrap-touchspin quantity">
                                         <span class="input-group-btn">
@@ -145,15 +145,18 @@
                             </tr>
                             <tr>
                                 <td> Total</td>
-                                <th class="cart-total-price" id="total-price">$216.51</th>
+                                <th class="cart-total-price" id="total-price">{{ getTotalPrice() | currency:'USD':true }}</th>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" [(ngModel)]="couponCode" placeholder="Coupon Code">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-third" (click)="applyCouponCode(couponCode)" [disabled]="!couponCode">Apply</button>
-                                        </span>
+                                    <div class="col-md-12 col-sm-8 no-padding">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" [(ngModel)]="couponCode" placeholder="Coupon Code">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-third" (click)="applyCouponCode(couponCode)" [disabled]="!couponCode">Apply</button>
+                                            </span>
+                                        </div>
+                                        <div class="error" [hidden]="!errorMess">{{ errorMess }}</div>
                                     </div>
                                 </td>
                             </tr>

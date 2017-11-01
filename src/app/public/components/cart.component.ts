@@ -13,6 +13,8 @@ export class CartComponent implements OnInit, OnDestroy {
     subscription:Subscription;
     data;
     couponCode: string;
+    discount: number = 0;
+    errorMess: string;
 
     constructor(private cartService:CartService, private activeRoute:ActivatedRoute) {
         this.subscription = this.activeRoute.data.subscribe(val => {
@@ -25,7 +27,15 @@ export class CartComponent implements OnInit, OnDestroy {
     }
 
     applyCouponCode(couponCode) {
-        this.cartService.applyCouponCode(couponCode);
+        this.cartService.applyCouponCode(couponCode).subscribe(
+          data => {
+            this.discount = data;
+            this.getTotalPrice();
+          },
+          error => {
+            this.errorMess = error;
+          }
+        );
     }
 
     increaseQuantity(product) {
@@ -45,6 +55,15 @@ export class CartComponent implements OnInit, OnDestroy {
     getProductPrice(product) {
         return product.onSale ? product.quantity*(product.price*(1-product.onSale/100)) : product.price*product.quantity;
     }
+
+    getTotalPrice() {
+        let total = 0;
+        this.data.forEach(product => {
+            total = total + this.getProductPrice(product);
+        });
+        return total*(1-this.discount/100);
+    }
+
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }

@@ -45,8 +45,18 @@ export class CartService {
         });
     }
 
-    applyCouponCode(couponCode: string) {
-
+    applyCouponCode(couponCode: string): Observable<number> {
+        return new Observable(observer => {
+            setTimeout(() => {
+                if (couponCode === '123') {
+                    observer.next(15);
+                }
+                else {
+                    observer.error('Wrong code');
+                }
+                observer.complete();
+            }, 2000)
+        })
     }
 
     removeProduct(product) {
