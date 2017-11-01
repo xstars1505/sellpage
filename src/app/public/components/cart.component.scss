@@ -27,3 +27,92 @@
     }
   }
 }
+
+.cartContent {
+  margin-bottom: 30px;
+  .table-responsive {
+    display: table;
+  }
+  .CartProduct {
+    border-bottom: 1px solid #E7E9EC;
+    td {
+      padding: 10px 0;
+      text-align: center;
+      &:nth-child(2) {
+        text-align: left;
+      }
+    }
+    .CartDescription {
+      @media (max-width: 480px) {
+        a {
+          font-size: 14px !important;
+          line-height: normal;
+        }
+      }
+    }
+    .quantity {
+      button {
+        border: none;
+      }
+    }
+    .price {
+      font-size: 15px;
+      font-weight: bold;
+      color: #454545;
+    }
+    .delete {
+      &:hover {
+        color: #4ec67f;
+        cursor: pointer;
+      }
+      @media (max-width: 480px) {
+        font-size: 12px;
+      }
+    }
+    .quanitySniper {
+      padding: 8px 0;
+      text-align: center;
+      width: 40px;
+    }
+    .box-price {
+      width: 25%;
+      vertical-align: top;
+      padding-top: 30px;
+      p {
+        margin-bottom: 5px;
+      }
+      .original-price {
+        text-decoration: line-through;
+        color: grey;
+        font-size: 14px;
+      }
+      .sale {
+        background: #ff9601;
+        font-size: 13px;
+        color: #fff;
+        padding: 2px 4px;
+        position: relative;
+        display: inline-block;
+        border-radius: 2px;
+        margin: 0;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .cartTableHeader {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    background: #EBEDEF;
+  }
+}
+
+.right-sidebar {
+  .table-block {
+    .btn-block {
+      text-transform: capitalize;
+      line-height: 28px;
+      margin-bottom: 20px;
+    }
+  }
+}

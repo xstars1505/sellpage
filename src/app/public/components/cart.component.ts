@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs/Rx';
 import { CartService } from '../services/cart.service';
-import { DataSource } from '@angular/cdk/table';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     moduleId: module.id,
@@ -9,26 +9,43 @@ import { DataSource } from '@angular/cdk/table';
     templateUrl: 'cart.component.html',
     styleUrls: ['cart.component.scss']
 })
-export class CartComponent implements OnInit {
-    dataSource;
-    items = [];
-    displayedColumns = ['product', 'details', 'quantity', 'discount'];
+export class CartComponent implements OnInit, OnDestroy {
+    subscription:Subscription;
+    data;
+    couponCode: string;
 
-    constructor (private cartService: CartService) {}
+    constructor(private cartService:CartService, private activeRoute:ActivatedRoute) {
+        this.subscription = this.activeRoute.data.subscribe(val => {
+            this.data = val["data"];
+        })
+    }
+
     ngOnInit() {
-        this.dataSource = new CartDataSource(this.cartService);
+
     }
 
-}
-
-export class CartDataSource extends DataSource<any> {
-    constructor (private cartService: CartService) {
-        super();
-    }
-    /** Connect function called by the table to retrieve one stream containing the data to render. */
-    connect(): Observable<any[]> {
-        return this.cartService.getProducts();
+    applyCouponCode(couponCode) {
+        this.cartService.applyCouponCode(couponCode);
     }
 
-    disconnect() {}
+    increaseQuantity(product) {
+        product.quantity++;
+    }
+
+    decreaseQuantity(product) {
+        if (product.quantity > 1) {
+            product.quantity--;
+        }
+    }
+
+    removeProduct(product) {
+        this.cartService.removeProduct(product);
+    }
+
+    getProductPrice(product) {
+        return product.onSale ? product.quantity*(product.price*(1-product.onSale/100)) : product.price*product.quantity;
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
 }

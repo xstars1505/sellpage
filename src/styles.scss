@@ -28,6 +28,9 @@ body {
   border-radius: 0;
   &:hover {
     cursor: pointer;
+    &[disabled] {
+      cursor: default;
+    }
   }
 }
 
@@ -51,12 +54,23 @@ body {
     background: #4fbfa8;
     color: #fff;
     border: solid 1px #4fbfa8;
+
   }
+}
+
+.btn-third {
+  color: #fff;
+  background-color: #4fbfa8;
+  border-color: #4fbfa8;
 }
 
 a {
   color: #4fbfa8;
   text-decoration: none;
+  &:hover {
+    color: #4ec67f;
+    cursor: pointer;
+  }
 }
 
 .image-responsive {
@@ -65,4 +79,15 @@ a {
 
 .margin-top-40 {
   margin-top: 40px;
+}
+
+.table-responsive {
+  min-height: .01%;
+  overflow-x: auto;
+  .cart-total-price {
+    color: #4ec67f;
+    font-weight: bold;
+    font-size: large;
+  }
+
 }

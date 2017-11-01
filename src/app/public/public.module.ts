@@ -11,7 +11,8 @@ import { ImageZoomContainer } from '../common/components/image-zoom-container.co
 import { ImageZoomLens } from '../common/components/image-zoom-lens.component';
 import { ImageZoom } from '../common/components/image-zoom.directive';
 import { OwlModule } from 'ngx-owl-carousel';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule } from '@angular/material';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
 
 //Component
 import { PublicComponent } from './public.component';
@@ -26,6 +27,7 @@ import { ProductDetailsComponent } from './components/product-details.component'
 import { CartComponent } from './components/cart.component';
 import { CartResolver } from './services/cart.resolver';
 import { CartService } from './services/cart.service';
+import { PaginationModule, TabsModule } from 'ngx-bootstrap/index';
 
 @NgModule({
     imports: [
@@ -36,6 +38,10 @@ import { CartService } from './services/cart.service';
         FormsModule,
         OwlModule,
         MatTableModule,
+        MatPaginatorModule,
+        Ng2TableModule,
+        PaginationModule.forRoot(),
+        TabsModule
     ],
     declarations: [
         PublicComponent,
