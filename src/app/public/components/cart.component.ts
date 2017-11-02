@@ -11,14 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CartComponent implements OnInit, OnDestroy {
     subscription:Subscription;
-    data;
+    items;
     couponCode: string;
     discount: number = 0;
     errorMess: string;
+    p = 1;
 
     constructor(private cartService:CartService, private activeRoute:ActivatedRoute) {
         this.subscription = this.activeRoute.data.subscribe(val => {
-            this.data = val["data"];
+            this.items = val["data"];
         })
     }
 
@@ -28,16 +29,22 @@ export class CartComponent implements OnInit, OnDestroy {
 
     applyCouponCode(couponCode) {
         this.cartService.applyCouponCode(couponCode).subscribe(
-          data => {
-            this.discount = data;
-            this.getTotalPrice();
-          },
-          error => {
-            this.errorMess = error;
-          }
+            data => {
+                this.discount = data;
+                this.errorMess = null;
+                this.getTotalPrice();
+            },
+            error => {
+                this.errorMess = error;
+            }
         );
     }
 
+    checkQuantity(product) {
+        if (parseInt(product.quantity) === 0) {
+            product.quantity = 1;
+        }
+    }
     increaseQuantity(product) {
         product.quantity++;
     }
@@ -58,7 +65,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
     getTotalPrice() {
         let total = 0;
-        this.data.forEach(product => {
+        this.items.forEach(product => {
             total = total + this.getProductPrice(product);
         });
         return total*(1-this.discount/100);

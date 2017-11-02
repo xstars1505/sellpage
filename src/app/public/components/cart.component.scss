@@ -53,6 +53,7 @@
     .quantity {
       button {
         border: none;
+        margin: 0 1px;
       }
     }
     .price {
@@ -100,11 +101,20 @@
     }
   }
   .cartTableHeader {
+    border-top: solid 1px #ccc;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 14px;
     background: #EBEDEF;
   }
+}
+
+.box-footer {
+  background: #f7f7f7;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #ccc;
 }
 
 .right-sidebar {
