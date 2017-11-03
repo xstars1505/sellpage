@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from "./components/home.component";
 import { PublicComponent } from "./public.component";
-import { WomenClothsComponent } from "./components/women-cloths.component";
 import { ProductsResolver } from "./services/products.resolver";
 import { ProductsComponent } from "./components/products.component";
 import { ProductDetailsComponent } from './components/product-details.component';
 import { ProductDetailsResolver } from './services/product-details.resolver';
+import { CartComponent } from './components/cart.component';
+import { CartResolver } from './services/cart.resolver';
 
 let routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -48,8 +49,11 @@ let routes: Routes = [
           ]
         },
         {
-          path: 'women-cloths',
-          component: WomenClothsComponent
+          path: 'cart',
+          component: CartComponent,
+          resolve: {
+            data: CartResolver
+          }
         },
       ]
     }

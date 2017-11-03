@@ -3,6 +3,7 @@ $fa-font-path : '../node_modules/font-awesome/fonts';
 @import '../node_modules/font-awesome/scss/font-awesome';
 @import "~owl.carousel/dist/assets/owl.carousel.css";
 @import "~owl.carousel/dist/assets/owl.theme.default.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
   font-family: 'Raleway',sans-serif;
@@ -16,6 +17,15 @@ body {
   float: right;
 }
 
+.no-padding {
+  padding: 0;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+}
+
 .btn {
   font-weight: 700;
   font-family: "Montserrat",Helvetica,Arial,sans-serif;
@@ -27,6 +37,9 @@ body {
   border-radius: 0;
   &:hover {
     cursor: pointer;
+    &[disabled] {
+      cursor: default;
+    }
   }
 }
 
@@ -50,12 +63,23 @@ body {
     background: #4fbfa8;
     color: #fff;
     border: solid 1px #4fbfa8;
+
   }
+}
+
+.btn-third {
+  color: #fff;
+  background-color: #4fbfa8;
+  border-color: #4fbfa8;
 }
 
 a {
   color: #4fbfa8;
   text-decoration: none;
+  &:hover {
+    color: #4ec67f;
+    cursor: pointer;
+  }
 }
 
 .image-responsive {
@@ -64,4 +88,21 @@ a {
 
 .margin-top-40 {
   margin-top: 40px;
+}
+
+.table-responsive {
+  min-height: .01%;
+  overflow-x: auto;
+  .cart-total-price {
+    color: #4ec67f;
+    font-weight: bold;
+    font-size: large;
+  }
+
+}
+
+.pagination-control {
+  .ngx-pagination .current {
+    background: #4fbfa8;
+  }
 }

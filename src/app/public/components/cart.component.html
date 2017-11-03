@@ -1,0 +1,182 @@
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="row page-top">
+            <div class="col-sm-6 offset-sm-3">
+                <h1>Shopping Cart</h1>
+                <p class="text-muted">You currently have {{ items.length }} items in carts</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-9 col-md-8 col-sm-12">
+            <div class="row userInfo">
+                <div class="col-12">
+
+                    <!--<ng-table [config]="config"
+                              (tableChanged)="onChangeTable(config)"
+                              (cellClicked)="onCellClick($event)"
+                              [rows]="rows" [columns]="columns">
+                    </ng-table>
+                    <pagination *ngIf="config.paging"
+                                class="pagination-sm"
+                                [(ngModel)]="page"
+                                [totalItems]="length"
+                                [itemsPerPage]="itemsPerPage"
+                                [maxSize]="maxSize"
+                                [boundaryLinks]="true"
+                                [rotate]="false"
+                                (pageChanged)="onChangeTable(config, $event)"
+                                (numPages)="numPages = $event">
+                    </pagination>
+
+                    <div class="example-container mat-elevation-z8">
+                        <mat-table #table [dataSource]="dataSource" class="example-table">
+                            &lt;!&ndash;- Note that these columns can be defined in any order.
+                                  The actual rendered columns are set as a property on the row definition" &ndash;&gt;
+
+                            &lt;!&ndash; ID Column &ndash;&gt;
+                            <ng-container matColumnDef="product">
+                                <mat-header-cell *matHeaderCellDef class="example-header-cell"> Product </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="example-cell">
+                                    <img class="image-responsive" [src]="row.mainImage"/>
+                                </mat-cell>
+                            </ng-container>
+
+                            &lt;!&ndash; Progress Column &ndash;&gt;
+                            <ng-container matColumnDef="details">
+                                <mat-header-cell *matHeaderCellDef class="example-header-cell"> Details </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="example-cell"> {{row.details}}% </mat-cell>
+                            </ng-container>
+
+                            &lt;!&ndash; Name Column &ndash;&gt;
+                            <ng-container matColumnDef="quantity">
+                                <mat-header-cell *matHeaderCellDef class="example-header-cell"> Quantity </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="example-cell"> {{row.quantity}}</mat-cell>
+                            </ng-container>
+
+                            &lt;!&ndash; Color Column &ndash;&gt;
+                            <ng-container matColumnDef="discount">
+                                <mat-header-cell *matHeaderCellDef class="example-header-cell">Discount</mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="example-cell"> {{row.discount}}</mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns" class="example-header-row"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;" class="example-row"></mat-row>
+                        </mat-table>
+                        <mat-paginator #paginator
+                                       [length]="dataSource.test"
+                                       [pageIndex]="0"
+                                       [pageSize]="3"
+                                       [pageSizeOptions]="[1, 3, 25, 100]">
+                        </mat-paginator>
+                    </div>-->
+
+                    <div class="cartContent">
+                        <table class="cart-table table-responsive">
+                            <tbody>
+                                <tr class="CartProduct cartTableHeader">
+                                    <td style="width: 15%"> Product</td>
+                                    <td style="width: 40%">Details</td>
+                                    <td style="width: 15%" class="delete">&nbsp;</td>
+                                    <td style="width: 10%">Quantity</td>
+                                    <td style="width: 15%">Price</td>
+                                </tr>
+                            <tr class="CartProduct"
+                                *ngFor="let product of items | paginate: {itemsPerPage: 3, currentPage: p}">
+                                <td style="width: 15%" >
+                                    <img class="image-responsive" [src]="product.mainImage"/>
+                                </td>
+                                <td style="width: 40%">
+                                    <div class="CartDescription">
+                                        <h5><a href="product-details.html">{{ product.fullName }}</a></h5>
+                                        <span class="size">{{ product.selectedSize }}</span>
+                                        <p class="price">{{ product.price | currency:'USD':true }}</p>
+                                    </div>
+                                </td>
+                                <td style="width: 15%" class="delete"><i class="fa fa-trash fa-2x" (click)="removeProduct(product)"></i></td>
+                                <td style="width: 10%">
+                                    <div class="input-group bootstrap-touchspin quantity">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default bootstrap-touchspin-down" (click)="decreaseQuantity(product)">-</button>
+                                        </span>
+                                        <input class="form-control quanitySniper" [(ngModel)]="product.quantity" min="1" type="tel" (blur)="checkQuantity(product)" >
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default bootstrap-touchspin-up" (click)="increaseQuantity(product)">+</button>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="box-price">
+                                    <p class="price">{{ getProductPrice(product) | currency:'USD':true }}</p>
+                                    <p class="original-price" [hidden]="!product.onSale">{{ product.price*product.quantity | currency:'USD':true }}</p>
+                                    <p class="sale" [hidden]="!product.onSale">{{ product.onSale + '%' }}</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12 text-center pagination-control">
+                        <pagination-controls previousLabel=""
+                                             nextLabel=""
+                                             (pageChange)="p = $event">
+                        </pagination-controls>
+                    </div>
+                    <div class="box-footer">
+                        <div class="">
+                            <a [routerLink]="['']" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12 right-sidebar">
+            <div class="table-block">
+                <a [routerLink]="['/checkout']"  class="btn btn-primary btn-lg btn-block">
+                    Proceed to checkout
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Total products</td>
+                                <td>$216.51</td>
+                            </tr>
+                            <tr style="">
+                                <td>Shipping</td>
+                                <td><span class="success">Free shipping!</span></td>
+                            </tr>
+                            <tr>
+                                <td>Total (tax excl.)</td>
+                                <td>$216.51</td>
+                            </tr>
+                            <tr>
+                                <td>Total tax</td>
+                                <td>$0.00</td>
+                            </tr>
+                            <tr>
+                                <td> Total</td>
+                                <th class="cart-total-price" id="total-price">{{ getTotalPrice() | currency:'USD':true }}</th>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="col-md-12 col-sm-8 no-padding">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" [(ngModel)]="couponCode" placeholder="Coupon Code">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-third" (click)="applyCouponCode(couponCode)" [disabled]="!couponCode">Apply</button>
+                                            </span>
+                                        </div>
+                                        <div class="error" [hidden]="!errorMess">{{ errorMess }}</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

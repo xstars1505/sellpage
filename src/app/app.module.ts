@@ -6,28 +6,31 @@ import { HttpModule } from '@angular/http';
 //Modules
 import { AppRoutingModule } from './app-routing.module';
 import { PublicModule } from "./public/public.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Components
 import { AppComponent } from './app.component';
 
 //Libs
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import {ScrollToModule} from 'ng2-scroll-to';
+import { ScrollToModule } from 'ng2-scroll-to';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule,
-    PublicModule,
-    NgbModule.forRoot(),
-    ScrollToModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+        PublicModule,
+        NgbModule.forRoot(),
+        ScrollToModule.forRoot()
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
