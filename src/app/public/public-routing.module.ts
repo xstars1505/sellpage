@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from './components/product-details.component'
 import { ProductDetailsResolver } from './services/product-details.resolver';
 import { CartComponent } from './components/cart.component';
 import { CartResolver } from './services/cart.resolver';
+import { CheckoutComponent } from './components/checkout.component';
 
 let routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -55,6 +56,10 @@ let routes: Routes = [
             data: CartResolver
           }
         },
+        {
+          path: 'checkout',
+          component: CheckoutComponent
+        }
       ]
     }
   ])],

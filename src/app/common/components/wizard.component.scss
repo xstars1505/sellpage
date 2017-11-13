@@ -1,0 +1,75 @@
+.card {
+  height: 100%;
+  width: 100%
+}
+
+.card-header {
+  background-color: #fff;
+  padding: 0;
+  font-size: 1.25rem;
+}
+
+.card-block {
+  overflow-y: auto;
+}
+
+.card-footer {
+  background-color: #fff;
+  border-top: 0 none;
+}
+
+.nav-item {
+  a {
+    display: block;
+    height: 100%;
+    font-size: 0.75rem;
+    padding: 10px 15px;
+  }
+}
+.active { &:after {
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-width: 10px;
+  margin-left: -10px;
+  border-top-color: #958a73;
+}
+}
+
+
+
+.active {
+  font-weight: bold;
+  color: #fff;
+  background-color: #958a73;
+}
+
+
+.enabled {
+  cursor: pointer;
+}
+
+
+.disabled {
+  color: #ccc;
+  a {
+    cursor: auto;
+  }
+}
+
+
+.completed {
+  cursor: default;
+}
+
+.wizard-control {
+  background: #f7f7f7;
+  margin-top: 2em;
+  padding: 1em;
+  border-top: solid 1px #eee;
+  display: flow-root;
+}
