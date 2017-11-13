@@ -32,7 +32,7 @@ export class CartComponent implements OnInit, OnDestroy {
             data => {
                 this.discount = data;
                 this.errorMess = null;
-                this.getTotalPrice();
+                this.getSubTotalPrice();
             },
             error => {
                 this.errorMess = error;
@@ -63,7 +63,7 @@ export class CartComponent implements OnInit, OnDestroy {
         return product.onSale ? product.quantity*(product.price*(1-product.onSale/100)) : product.price*product.quantity;
     }
 
-    getTotalPrice() {
+    getSubTotalPrice() {
         let total = 0;
         this.items.forEach(product => {
             total = total + this.getProductPrice(product);

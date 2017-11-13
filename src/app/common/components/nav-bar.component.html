@@ -2,7 +2,7 @@
 <div class="topbar">
     <div class="container">
         <div class="topbar__content row">
-            <div class="col-sm-3 offset-sm-1 hidden-sm-down">
+            <div class="col-sm-3 offset-sm-1 d-none d-sm-none d-md-block">
                 <form class="topbar__search">
                     <div class="input-group"><span class="input-group-btn">
                     <button type="button" class="btn"><i class="fa fa-search"></i></button></span>
@@ -16,7 +16,7 @@
                     <img src="http://hunter.ondrejsvestka.cz/1-1/img/logo.png" alt="" class="topbar__logo__small">
                 </a>
             </div>
-            <div class="col-sm-3 hidden-sm-down">
+            <div class="col-sm-3 d-none d-sm-none d-md-block">
                 <div class="topbar__cart">
                     <a [routerLink]="['/cart']" class="btn btn-transparent">
                         <i class="fa fa-shopping-cart"></i>
@@ -38,7 +38,7 @@
                     <p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
                         eleifend leo. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
                     </p>
-                    <button (click)="scrollTo('#navigation-bar', '#navigation')" class="btn btn-white scroll-to">Start shopping </button>
+                    <button (click)="scrollTo(navigation)" class="btn btn-white scroll-to">Start shopping </button>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
 </section>
 
 <!--Navigation bar-->
-<div id="navigation-bar" class="navbar navbar-toggleable-sm navbar-default">
+<div id="navigation-bar" class="navbar navbar-toggleable-sm navbar-default" #navigation>
     <div class="container">
         <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target=".collapsed-search" class="navbar-toggler navbar-toggle btn btn-transparent"><i class="fa fa-search"></i></button>

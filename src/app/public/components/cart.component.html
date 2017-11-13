@@ -140,15 +140,7 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td>Total products</td>
-                                <td>$216.51</td>
-                            </tr>
-                            <tr style="">
-                                <td>Shipping</td>
-                                <td><span class="success">Free shipping!</span></td>
-                            </tr>
-                            <tr>
-                                <td>Total (tax excl.)</td>
+                                <td>Price</td>
                                 <td>$216.51</td>
                             </tr>
                             <tr>
@@ -156,8 +148,9 @@
                                 <td>$0.00</td>
                             </tr>
                             <tr>
-                                <td> Total</td>
-                                <th class="cart-total-price" id="total-price">{{ getTotalPrice() | currency:'USD':true }}</th>
+                                <td>Sub-Total</td>
+                                <th class="cart-total-price" id="total-price">{{ getSubTotalPrice() |
+                                  currency:'USD':true }}</th>
                             </tr>
                             <tr>
                                 <td colspan="2">
