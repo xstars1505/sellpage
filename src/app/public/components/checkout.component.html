@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="row page-top">
+    <div class="col-sm-6 offset-sm-3">
+      <h1>Checkout</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
+      <form-wizard>
+        <wizard-step [title]="'Address'" [isValid]="emailForm.form.valid" (onNext)="onStep1Next($event)" [icon]="'fa-map-marker'">
+          <h3>Shipping Address</h3>
+          <form #emailForm="ngForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox"> Check me out
+                </label>
+              </div>
+            </div>
+          </form>
+        </wizard-step>
+        <wizard-step [title]="'Delivery Method'" (onNext)="onStep2Next($event)" [icon]="'fa-truck'">
+          <h1>Step2</h1>
+        </wizard-step>
+        <wizard-step [title]="'Payment Method'" (onNext)="onStep2Next($event)" [icon]="'fa-money'">
+          <h1>Step2</h1>
+        </wizard-step>
+        <wizard-step [title]="'Order Review'" (onNext)="onStep2Next($event)" [icon]="'fa-eye'">
+          <h1>Step2</h1>
+        </wizard-step>
+      </form-wizard>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-12 right-sidebar">
+      <div class="table-block">
+        <h2>Order Summary</h2>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+            <tr>
+              <td>Price</td>
+              <td>$216.51</td>
+            </tr>
+            <tr>
+              <td>Total tax</td>
+              <td>$0.00</td>
+            </tr>
+            <tr>
+              <td>Sub-Total</td>
+              <th class="cart-total-price" id="total-price">{{ '111' | currency:'USD':true }}</th>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="col-md-12 col-sm-8 no-padding">
+                  <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="couponCode" placeholder="Coupon Code">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-third" (click)="applyCouponCode(couponCode)" [disabled]="!couponCode">Apply</button>
+                    </span>
+                  </div>
+                  <div class="error" [hidden]="!errorMess">{{ errorMess }}</div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
