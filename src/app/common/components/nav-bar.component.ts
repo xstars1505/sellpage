@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,15 +7,21 @@ import { Router } from "@angular/router";
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  showSlider;
-  constructor(private _router: Router) {}
+  showSlider: boolean = true;
+  constructor(private _router: Router) {
+    this._router.events.filter(event => event instanceof NavigationEnd)
+      .subscribe(
+        event => {
+          this.showSlider = this._router.url === '/';
+        }
+      )
+  }
 
   ngOnInit() {
-    this.showSlider = this._router.url === '/';
   }
 
   scrollTo(navigation) {
-    navigation.scrollIntoView();
+    navigation.scrollIntoView( {behavior: 'smooth', block: 'start', inline: 'start'});
 
   }
 }
