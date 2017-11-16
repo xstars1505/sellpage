@@ -38,7 +38,7 @@ body {
   &:hover {
     cursor: pointer;
     &[disabled] {
-      cursor: default;
+      cursor: not-allowed;
     }
   }
 }
@@ -68,6 +68,12 @@ body {
   &:active {
     background: #4fbfa8 !important;
     color: #fff !important;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color: initial;
+    border-color: initial;
+
   }
 }
 
@@ -143,4 +149,18 @@ form-wizard {
       clear: both;
     }
   }
+}
+
+input[type='radio']:checked:after {
+  width: 17px;
+  height: 17px;
+  border-radius: 17px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: white;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 6px solid #4ec67f;
 }

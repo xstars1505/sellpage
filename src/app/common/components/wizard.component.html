@@ -1,6 +1,5 @@
-<div class="container-fluid">
+
 <div class="row">
-  <div class="col-12">
     <div class="card">
       <div class="card-header">
         <ul class="nav nav-justified nav-pills">
@@ -13,17 +12,16 @@
           </li>
         </ul>
       </div>
-      <div class="card-block">
+      <div class="card-body">
         <ng-content></ng-content>
       </div>
     </div>
   </div>
-  <div class="col-12" [hidden]="isCompleted">
+  <div class="row" [hidden]="isCompleted">
     <div class="wizard-control">
       <button type="button" class="btn btn-primary float-left" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Previous</button>
       <button type="button" class="btn btn-primary float-right" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Next</button>
       <button type="button" class="btn btn-primary float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
     </div>
   </div>
-</div>
-</div>
+

@@ -8,18 +8,22 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
     styleUrls: ['checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  shippingForm: any;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder) {
+    this.shippingForm = this._formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      zipCode: ['', Validators.required],
+    });
+  }
+
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
+
   }
 
 }

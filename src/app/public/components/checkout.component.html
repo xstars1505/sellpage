@@ -6,33 +6,36 @@
   </div>
 
   <div class="row">
-    <div class="col-md-9 col-sm-12">
+    <div class="col-lg-9 col-md-12">
       <form-wizard>
-        <wizard-step [title]="'Address'" [isValid]="emailForm.form.valid" (onNext)="onStep1Next($event)" [icon]="'fa-map-marker'">
-          <h3>Shipping Address</h3>
-          <form #emailForm="ngForm">
+        <wizard-step [title]="'Address'" [isValid]="shippingForm.valid" [icon]="'fa-map-marker'">
+          <form [formGroup]="shippingForm">
+            <h3>Shipping Address</h3>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                <label for="firstName">First Name</label>
+                <input type="tel" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name">
+              </div>
+              <div [hidden]="!shippingForm.get('firstName').valid">
+                The password is required.
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="number" class="form-control" id="phoneNumber" formControlName="phoneNumber" placeholder="123456" required>
             </div>
             <div class="form-group">
-              <label for="inputAddress2">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" formControlName="address" placeholder="1234 Main St" required>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" for="city" required>
               </div>
               <div class="form-group col-md-4">
                 <label for="inputState">State</label>
@@ -42,14 +45,24 @@
                 </select>
               </div>
               <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+                <label for="zipCode">Zip</label>
+                <input type="text" class="form-control" id="zipCode" formControlName="zipCode" required>
+              </div>
+            </div>
+            <div>
+              <h3>Delivery</h3>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio"> Standard shipping
+                </label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox"> Check me out
+                  <input class="form-check-input" type="radio"> Advanced shipping
                 </label>
               </div>
             </div>
@@ -66,7 +79,7 @@
         </wizard-step>
       </form-wizard>
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-12 right-sidebar">
+    <div class="col-lg-3 col-md-12 right-sidebar">
       <div class="table-block">
         <h2>Order Summary</h2>
         <div class="table-responsive">

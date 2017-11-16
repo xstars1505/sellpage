@@ -9,15 +9,6 @@
   font-size: 1.25rem;
 }
 
-.card-block {
-  overflow-y: auto;
-}
-
-.card-footer {
-  background-color: #fff;
-  border-top: 0 none;
-}
-
 .nav-item {
   a {
     display: block;
@@ -71,5 +62,6 @@
   margin-top: 2em;
   padding: 1em;
   border-top: solid 1px #eee;
-  display: flow-root;
+  width: 100%;
+  margin-bottom: 2em;
 }
