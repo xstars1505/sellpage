@@ -9,10 +9,10 @@ import { NavigationEnd, Router} from "@angular/router";
 export class NavBarComponent implements OnInit {
   showSlider: boolean = true;
   constructor(private _router: Router) {
-    this._router.events.filter(event => event instanceof NavigationEnd)
-      .subscribe(
+    this._router.events.subscribe(
         event => {
-          this.showSlider = this._router.url === '/';
+          if (event instanceof NavigationEnd)
+            this.showSlider = this._router.url === '/';
         }
       )
   }

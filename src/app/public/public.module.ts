@@ -26,9 +26,9 @@ import { CartComponent } from './components/cart.component';
 import { CartResolver } from './services/cart.resolver';
 import { CartService } from './services/cart.service';
 import { CheckoutComponent } from './components/checkout.component';
-import { MatStepperModule } from '@angular/material/stepper';
-import {WizardComponent} from "../common/components/wizard.component";
-import {WizardStepComponent} from "../common/components/wizard-step.component";
+import { WizardComponent } from "../common/components/wizard.component";
+import { WizardStepComponent } from "../common/components/wizard-step.component";
+import { ValidationService } from "./services/validation.service";
 
 @NgModule({
     imports: [
@@ -39,8 +39,7 @@ import {WizardStepComponent} from "../common/components/wizard-step.component";
         ReactiveFormsModule,
         NgxPaginationModule,
         FormsModule,
-        OwlModule,
-        MatStepperModule
+        OwlModule
     ],
     declarations: [
         PublicComponent,
@@ -58,7 +57,7 @@ import {WizardStepComponent} from "../common/components/wizard-step.component";
         WizardStepComponent
     ],
     entryComponents: [ImageZoomContainer, ImageZoomLens,],
-    providers: [ProductDetailsService, ProductsResolver, ProductDetailsResolver, CartResolver, CartService]
+    providers: [ProductDetailsService, ProductsResolver, ProductDetailsResolver, CartResolver, CartService, ValidationService]
 })
 export class PublicModule {
 }
