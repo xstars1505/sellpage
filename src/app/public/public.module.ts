@@ -29,6 +29,7 @@ import { CheckoutComponent } from './components/checkout.component';
 import { WizardComponent } from "../common/components/wizard.component";
 import { WizardStepComponent } from "../common/components/wizard-step.component";
 import { ValidationService } from "./services/validation.service";
+import {PhoneNumberInput} from "../common/directives/phoneNumberInput.directive";
 
 @NgModule({
     imports: [
@@ -54,10 +55,11 @@ import { ValidationService } from "./services/validation.service";
         CartComponent,
         CheckoutComponent,
         WizardComponent,
-        WizardStepComponent
+        WizardStepComponent,
+        PhoneNumberInput
     ],
     entryComponents: [ImageZoomContainer, ImageZoomLens,],
-    providers: [ProductDetailsService, ProductsResolver, ProductDetailsResolver, CartResolver, CartService, ValidationService]
+    providers: [ProductDetailsService, ProductsResolver, ProductDetailsResolver, CartResolver, CartService, ValidationService, ]
 })
 export class PublicModule {
 }

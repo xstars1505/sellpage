@@ -38,4 +38,13 @@ export class ValidationService {
       return { 'invalidPassword': true };
     }
   }
+
+  static phoneNumberValidator(control) {
+    if (control.value && control.value.match(/(\d{4}) (\d{3}) (\d{3,4})/) || !control.value) {
+      return null;
+    }
+    else {
+      return { 'invalidPhoneNumber': true };
+    }
+  }
 }

@@ -60,7 +60,10 @@ export class WizardComponent implements AfterContentInit {
   }
 
   public goToStep(step: WizardStepComponent): void {
-    if (!this.isCompleted) {
+    // if (!this.isCompleted) {
+    //   this.activeStep = step;
+    // }
+    if (this.activeStep.isValid && step.isValid) {
       this.activeStep = step;
     }
   }

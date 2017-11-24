@@ -2,7 +2,7 @@
   https://github.com/maiyaporn/angular2-wizard
  */
 
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnDestroy, AfterViewInit} from '@angular/core';
 
 @Component({
   selector: 'wizard-step',
@@ -13,7 +13,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </div>
   `
 })
-export class WizardStepComponent {
+export class WizardStepComponent implements OnDestroy, AfterViewInit {
   @Input() title: string;
   @Input() icon: string;
   @Input() hidden: boolean = false;
@@ -28,7 +28,13 @@ export class WizardStepComponent {
   private _isActive: boolean = false;
   isDisabled: boolean = true;
 
-  constructor() { }
+  constructor() {
+
+  }
+
+  ngAfterViewInit() {
+    console.log('from: ' +  this.title)
+  }
 
   @Input('isActive')
   set isActive(isActive: boolean) {
@@ -38,6 +44,10 @@ export class WizardStepComponent {
 
   get isActive(): boolean {
     return this._isActive;
+  }
+
+  ngOnDestroy() {
+    this.isDisabled = true;
   }
 
 }

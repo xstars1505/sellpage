@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ValidationService} from "../services/validation.service";
 
 @Component({
     moduleId: module.id,
@@ -14,9 +15,9 @@ export class CheckoutComponent implements OnInit {
     this.shippingForm = this._formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, ValidationService.phoneNumberValidator]],
       address: ['', Validators.required],
-      city: ['', Validators.required],
+      city: [''],
       zipCode: ['', Validators.required],
     });
   }

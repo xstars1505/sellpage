@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">
         <ul class="nav nav-justified nav-pills">
-          <li class="nav-item" *ngFor="let step of steps" [ngClass]="{'active': step.isActive, 'enabled': !step.isDisabled, 'disabled': step.isDisabled, 'completed': isCompleted}">
+          <li class="nav-item" *ngFor="let step of steps" [ngClass]="{'active': step.isActive, 'enabled': !step.isDisabled, 'disabled': step.isDisabled || step.previousStep.isValid, 'completed': isCompleted}">
             <a (click)="goToStep(step)">
               <i class="fa" ngClass="{{step.icon}}"></i>
               <br/>
@@ -19,9 +19,9 @@
   </div>
   <div class="row" [hidden]="isCompleted">
     <div class="wizard-control">
-      <button type="button" class="btn btn-primary float-left" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Previous</button>
-      <button type="button" class="btn btn-primary float-right" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Next</button>
-      <button type="button" class="btn btn-primary float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
+      <button type="button" class="btn btn-third float-left" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Previous</button>
+      <button type="button" class="btn btn-third float-right" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Next</button>
+      <button type="button" class="btn btn-third float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
     </div>
   </div>
 
